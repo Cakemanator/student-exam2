@@ -3,16 +3,12 @@ pipeline {
    stages {
     stage ('---run---') {
       steps {
-        sh "pip install -e ."
-        sh "export FLASK_APP=js_example"
-        sh "flask run"
+        echo "RUN STAGE TeSt"
        }
     }
     stage ('---test---') {
       steps {
-        sh "pip install -e '.[test]'"
-        sh "coverage run -m pytest"
-        sh "coverage report"
+        echo "TeSt StAgE tEsT"
        }
       }
      }
