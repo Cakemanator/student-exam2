@@ -3,9 +3,9 @@ pipeline {
    stages {
     stage ('---run---') {
       steps {
-        pip install -e .
-        export FLASK_APP=js_example
-        flask run
+        sh "pip install -e ."
+        sh "export FLASK_APP=js_example"
+        sh "flask run"
        }
     }
     stage ('---test---') {
