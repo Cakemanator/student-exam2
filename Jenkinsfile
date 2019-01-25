@@ -3,12 +3,16 @@ pipeline {
    stages {
     stage ('---run---') {
       steps {
-        echo "RUN STAGE TeSt"
+        pip install -e .
+        export FLASK_APP=js_example
+        flask run
        }
     }
     stage ('---test---') {
       steps {
-        echo "TeSt StAgE tEsT"
+        pip install -e '.[test]'
+        coverage run -m pytest
+        coverage report
        }
       }
      }
