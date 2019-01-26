@@ -5,7 +5,7 @@ pipeline {
   }
   agent { node { label 'jenkins-agent' } } 
    stages {
-    stage ('---test---') {
+    stage ('Python tests') {
      steps {
         sh """
         python3 -m venv venv
@@ -22,10 +22,19 @@ pipeline {
      stage('Building image') {
       steps{
         script {
-          docker.build registry + ":$BUILD_NUMBER"
+          dockerImage = docker.build registry + ":$BUILD_NUMBER"
         }
       }
     }
+     stage('Pushing image'){
+       steps{
+        script {
+          docker.withRegistry( '', registryCredential ) {
+          dockerImage.push()
+          }
+         }
+       }
+     }
   }
 }
   
