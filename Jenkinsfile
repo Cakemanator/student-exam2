@@ -4,7 +4,9 @@ pipeline {
     stage ('---run---') {
      steps {
         sh """
+        python3 -m venv venv
         pip install --user -e .
+        . venv/bin/activate
         export FLASK_APP=js_example
         flask run
         """
