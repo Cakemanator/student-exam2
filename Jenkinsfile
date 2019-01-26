@@ -13,7 +13,7 @@ pipeline {
     stage ('---test---') {
       steps {
         sh """
-        pip install -e '.[test]'
+        pip install -e --user '.[test]'
         coverage run -m pytest
         coverage report
         """
