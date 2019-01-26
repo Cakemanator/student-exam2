@@ -5,8 +5,8 @@ pipeline {
      steps {
         sh """
         python3 -m venv venv
-        pip install -e .
         . venv/bin/activate
+        pip install -e .
         export FLASK_APP=js_example
         """
        }
