@@ -5,7 +5,7 @@ pipeline {
      steps {
         sh """
         python3 -m venv venv
-        pip install --user -e .
+        pip install -e .
         . venv/bin/activate
         export FLASK_APP=js_example
         """
@@ -14,7 +14,7 @@ pipeline {
     stage ('---test---') {
       steps {
         sh """
-        pip install --user -e '.[test]'
+        pip install -e '.[test]'
         coverage run -m pytest
         coverage report
         """
