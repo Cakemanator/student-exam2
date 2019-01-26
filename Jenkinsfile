@@ -15,6 +15,7 @@ pipeline {
         pip install -e '.[test]'
         coverage run -m pytest
         coverage report
+        deactivate
         """
        }
       }
