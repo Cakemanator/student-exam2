@@ -8,7 +8,6 @@ pipeline {
         pip install --user -e .
         . venv/bin/activate
         export FLASK_APP=js_example
-        flask run
         """
        }
     }
