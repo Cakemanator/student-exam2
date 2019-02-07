@@ -1,7 +1,7 @@
 pipeline {
   environment {
     registry = "korados/epamexam"
-    registryCredential = '8c5b921a-ead6-48fd-99c0-2c0c6ac63823'
+    registryCredential = 'DockerHUB'
   }
   agent { node { label 'jenkins-agent' } } 
    stages {
